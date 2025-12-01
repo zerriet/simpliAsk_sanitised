@@ -11,6 +11,11 @@ feature_db = [
         "id": 2,
         "feature": "Devices Agent",
         "description": "This agent helps you to apply for devices"
+    },
+    {
+        "id": 3,
+        "feature": "Claims Agent",
+        "description": "This agent helps you to apply for claims"
     }
 ]
 
