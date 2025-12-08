@@ -73,4 +73,6 @@ device_smol_agent = ToolCallingAgent(
     ],
     model=get_smol_model(),
     instructions=DEVICE_INSTRUCTIONS,
+    name="device_specialist",
+    description="Useful for requesting new IT peripherals and devices (cables, mice, keyboards, etc.)."
 )

@@ -117,4 +117,6 @@ leave_smol_agent = ToolCallingAgent(
     ],
     model=get_smol_model(),
     instructions=LEAVE_INSTRUCTIONS,
+    name="leave_specialist",
+    description="Useful for questions about leave balances, drafting leave requests, and submitting leave applications. Handles annual, medical, and family leave."
 )

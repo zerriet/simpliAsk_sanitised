@@ -112,4 +112,6 @@ claims_smol_agent = ToolCallingAgent(
     ],
     model=get_smol_model(),
     instructions=CLAIMS_INSTRUCTIONS,
+    name="claims_specialist",
+    description="Useful for handling medical reimbursement claims. Can draft claims from receipt details and submit them."
 )
