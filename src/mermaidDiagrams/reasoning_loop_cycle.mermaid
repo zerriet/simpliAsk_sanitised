@@ -1,0 +1,36 @@
+graph TB
+    Start["👤 USER INPUT<br/>'Take leave Dec 25-29'"]
+    
+    subgraph Loop["🔄 AGENTIC REASONING LOOP"]
+        Think["💭 THINK<br/>'Need to verify<br/>leave balance'"]
+        
+        Code["⚡ PLAN<br/><code>if balance >= 5:<br/>  draft_request()<br/>else:<br/>  deny()</code>"]
+        
+        Act["🔧 ACT<br/>get_leave_balance()<br/>→ Query DB"]
+        
+        Observe["👁️ OBSERVE<br/>'Balance: 8 days<br/>✓ Sufficient'"]
+        
+        Think --> Code
+        Code --> Act
+        Act --> Observe
+        Observe -.->|Iterate if needed| Think
+    end
+    
+    End["✅ RESPOND<br/>'Draft created!<br/>Submit now?'"]
+    
+    Start --> Think
+    Observe --> End
+    
+    Note["💡 KEY INSIGHT<br/>Agent dynamically generates<br/>logic based on context<br/><b>NOT hard-coded rules</b>"]
+    
+    Loop -.-> Note
+    
+    style Start fill:#4A90E2,stroke:#2E5C8A,stroke-width:3px,color:#FFFFFF
+    style Think fill:#E8F5E9,stroke:#388E3C,stroke-width:2px,color:#000000
+    style Code fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#000000
+    style Act fill:#E1F5FE,stroke:#0277BD,stroke-width:2px,color:#000000
+    style Observe fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#000000
+    style End fill:#E8F5E9,stroke:#2E7D32,stroke-width:3px,color:#000000
+    style Note fill:#FFEBEE,stroke:#C62828,stroke-width:3px,color:#000000,font-weight:bold
+    
+    linkStyle 4 stroke:#E74C3C,stroke-width:2px,stroke-dasharray: 5 5

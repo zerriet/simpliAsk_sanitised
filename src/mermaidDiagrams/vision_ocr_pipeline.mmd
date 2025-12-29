@@ -1,0 +1,33 @@
+flowchart TD
+    subgraph INPUT ["Input Layer"]
+        A[User Uploads PDF/Image] --> B{Agent Receives File}
+    end
+
+    subgraph VISION ["Vision Tool (DeepSeek-OCR)"]
+        B -->|Call DeepSeekOCRTool| C[Load Model: Transformers Env]
+        C -->|Apply 'Gundam' Mode| D[Tiled Processing Preserve High Res]
+        D -->|Prompt: 'Convert to Markdown'| E[Output: Raw Markdown String]
+    end
+
+    subgraph LOGIC ["Router & Reasoning Layer"]
+        E --> F{Fingerprint Check}
+        F -->|"Contains 'DBS BANK'"| G[Retrieve DBS_Schema & Few-Shot]
+        F -->|"Contains 'UOB'"| H[Retrieve UOB_Schema & Few-Shot]
+        F -->|"Unknown"| I[Retrieve Generic Schema]
+        
+        G --> J[Construct Context Prompt]
+        H --> J
+        I --> J
+        J -->|Inject Markdown + Schema| K[LLM Inference Reasoning]
+    end
+
+    subgraph CALC ["Calculation Layer"]
+        K -->|Output: Structured JSON| L[Pandas DataFrame]
+        L --> M[Compute Average / Max / Min]
+    end
+
+    M --> N([Final Answer to User])
+
+    style D fill:#f9f,stroke:#333,stroke-width:2px
+    style F fill:#bbf,stroke:#333,stroke-width:2px
+    style K fill:#bfb,stroke:#333,stroke-width:2px

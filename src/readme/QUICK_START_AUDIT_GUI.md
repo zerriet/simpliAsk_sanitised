@@ -17,7 +17,7 @@ pip install -r audit_gui/requirements.txt
 
 ### Option 1: Use the startup script (easiest)
 ```bash
-python run_audit_gui.py
+python scripts/run_audit_gui.py
 ```
 
 ### Option 2: Run Flask directly
@@ -61,7 +61,7 @@ http://localhost:5000
 - Install dependencies: `pip install flask flask-cors`
 
 **No data showing?**
-- Make sure you have audit logs in `audit_trail.db`
+- Make sure you have audit logs in `data/audit_trail.db`
 - Check that your agents are logging to the audit trail
 - Try refreshing the page
 

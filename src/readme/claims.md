@@ -36,7 +36,7 @@ The Claims Agent System is a medical reimbursement claims management solution bu
 │                       │                                      │
 │                       ▼                                      │
 │  ┌──────────────────────────────────────────────────────┐  │
-│  │  SQLite Database (claims_poc.db)                      │  │
+│  │  SQLite Database (data/claims_poc.db)                 │  │
 │  │  - Table: claims                                      │  │
 │  │  - Schema: claim_id, employee_id, status,            │  │
 │  │            created_at, data (JSON)                    │  │
@@ -144,7 +144,7 @@ CREATE TABLE claims (
 **`_get_db()`** (Context Manager)
 - Returns SQLite connection with `sqlite3.Row` factory
 - Ensures proper connection cleanup via context manager
-- Database file: `claims_poc.db` (created in current directory)
+- Database file: `data/claims_poc.db` (created in data directory)
 
 **`_init_db()`**
 - Initializes database table on module import
@@ -534,7 +534,7 @@ result = ct.submit_medical_claim("mark_tan", claim_id)
    - `src/agents/smol_claims_agent.py` - Agent layer
    - `src/tools/claims_tools.py` - Business logic layer
    - `src/tests/test_claims_agent.ipynb` - Test suite
-3. **Database**: SQLite file `claims_poc.db` is created automatically
+3. **Database**: SQLite file `data/claims_poc.db` is created automatically
 4. **Dependencies**: See `pyproject.toml` for required packages
 
 ### For Optimization Work
@@ -568,7 +568,7 @@ result = ct.submit_medical_claim("mark_tan", claim_id)
 3. Iterate based on agent responses
 
 **Debugging Issues**:
-1. Check database directly: `sqlite3 claims_poc.db`
+1. Check database directly: `sqlite3 data/claims_poc.db`
 2. Run individual test cells in notebook
 3. Check agent tool calls in notebook output
 4. Review error JSON responses

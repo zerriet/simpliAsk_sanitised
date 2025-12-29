@@ -20,7 +20,7 @@ _local = threading.local()
 class AuditTrail:
     """Manages audit trail logging to SQLite database."""
     
-    def __init__(self, db_path: str = "audit_trail.db"):
+    def __init__(self, db_path: str = "data/audit_trail.db"):
         """
         Initialize the audit trail system.
         
@@ -346,7 +346,7 @@ class AuditTrail:
 _audit_trail = None
 
 
-def get_audit_trail(db_path: str = "audit_trail.db") -> AuditTrail:
+def get_audit_trail(db_path: str = "data/audit_trail.db") -> AuditTrail:
     """
     Get or create the global audit trail instance.
     

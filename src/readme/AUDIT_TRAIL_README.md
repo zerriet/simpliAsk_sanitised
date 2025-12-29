@@ -203,12 +203,14 @@ log_agent_interaction(
 
 ## Database Location
 
-By default, the audit trail database is created as `audit_trail.db` in the current working directory. You can specify a custom path:
+By default, the audit trail database is created as `data/audit_trail.db`. You can specify a custom path:
 
 ```python
 from src.tools.audit_trail import AuditTrail
 
-audit = AuditTrail(db_path="data/audit_trail.db")
+audit = AuditTrail(db_path="data/audit_trail.db")  # Default
+# Or use a custom path:
+audit = AuditTrail(db_path="custom/path/audit_trail.db")
 ```
 
 ## Thread Safety
@@ -270,5 +272,5 @@ def get_employee_audit(employee_id):
 - `audit_helper.py`: Helper functions for easier integration
 - `audit_viewer.py`: Viewing and querying audit logs
 - `audit_integration_example.py`: Example integration code
-- `audit_trail_usage_example.py`: Standalone usage examples
+- `scripts/audit_trail_usage_example.py`: Standalone usage examples
 
